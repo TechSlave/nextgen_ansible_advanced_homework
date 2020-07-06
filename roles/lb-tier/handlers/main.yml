@@ -1,7 +1,7 @@
 ---
 
-- name: start {{ payload }}
-  service:
-    name: tomcat
-    state: started
-
+- name: "restart {{ payload }}.service to apply the changes" 
+- name: start {{ payload }}	
+  service:	  service:
+    name: tomcat	    name: "{{ payload }}.service" 
+    state: started	    state: restarted 
