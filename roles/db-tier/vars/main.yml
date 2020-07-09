@@ -1,0 +1,12 @@
+postgresql_databases:
+  - name: ansiblehm_db
+
+postgresql_users:
+- name: itamar
+  password: supersecure
+
+payload:
+  - postgresql
+  - postgresql-server
+  - postgresql-contrib
+  - postgresql-libs
