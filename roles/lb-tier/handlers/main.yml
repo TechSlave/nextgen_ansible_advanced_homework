@@ -1,7 +1,5 @@
 ---
-
 - name: "restart {{ payload }}.service to apply the changes" 
-- name: start {{ payload }}	
   service:
     name: "{{ payload }}.service" 
     state: restarted 

@@ -1,0 +1,28 @@
+- name: Run a smoke test on the QA environment for the three-tier application 
+  - hosts: workstation
+    gather_facts: false
+    tasks:
+    - name: OpenStack servers
+      os_server_info:
+        cloud: openstack
+        server: 'frontend'
+      register: openstack_info
+
+    - name: Check if all osp instance exist
+      debug: "{{ openstack_info.openstack_servers | length }}"
+      register: osp_instance
+    - name: 'Check if a page returns a status number 200 and fail if the sentence "Ansible has done" is not present'
+      uri:
+        url: "http://{{ item.public_v4 }}"
+        status_code: 200
+        return_content: yes
+      when: 'item.name == "frontend"'
+      with_items: "{{ openstack_info.openstack_servers }}"
+      failed_when: "'Ansible has done' not in this.content"
+      tags:
+        - osp.smoke
+      ignore_errors: yes
+
+    - name: Fail if 'Ansible' is not in the page content
+      fail:
+      when: "'Ansible' not in qa_webpage.content"

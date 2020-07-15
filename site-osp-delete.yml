@@ -1,5 +1,5 @@
 #- hosts: workstation
-- hosts: workstation-6a6b.green.osp.opentlc.com 
+- hosts: workstation-e584.green.osp.opentlc.com 
   become: yes
   roles:
     - osp-instance-delete
