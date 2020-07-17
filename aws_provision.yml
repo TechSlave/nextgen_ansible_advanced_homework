@@ -4,6 +4,7 @@
   gather_facts: false
   vars:
     - param_user: itamar.portela-smanager.com.br
+    - param_password: TESTE
   tasks:
     - name: create bin directory
       file:
