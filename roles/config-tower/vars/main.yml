@@ -1,6 +1,6 @@
 ---
 # vars file for roles/config-tower
-param_user: itamar.portela-smanager.com.br
+opentlc_login: itamar.portela-smanager.com.br
 org_name: Default 
 scm_type: git
 scm_branch: master 
