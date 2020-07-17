@@ -1,10 +1,8 @@
 ---
-- hosts: workstation
+- name: order opentlc lab
+  hosts: workstation
   become: true
   gather_facts: false
-  vars:
-    - param_user: itamar.portela-smanager.com.br
-    - param_password: TESTE
   tasks:
     - name: create bin directory
       file:
