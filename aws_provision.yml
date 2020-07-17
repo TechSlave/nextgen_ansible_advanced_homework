@@ -2,6 +2,8 @@
 - hosts: workstation
   become: true
   gather_facts: false
+  vars:
+    - param_user: itamar.portela-smanager.com.br
   tasks:
     - name: create bin directory
       file:
